@@ -8,7 +8,8 @@
     "test:watch": "yarn test --watch",
     "start": "ts-node -r dotenv/config src",
     "dev": "nodemon -r dotenv/config src/index.ts",
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint src/**/*.ts",
+    "generate": "ts-node scripts/generateModels.ts"
   },
   "keywords": [],
   "author": "Mateja Petrovic <mateja176@gmail.com> (https://github.com/mateja176)",
@@ -43,7 +44,6 @@
   },
   "dependencies": {
     "@hapi/joi": "^16.1.4",
-    "@typegoose/typegoose": "^5.9.2",
     "bcrypt": "^3.0.6",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.10.1",

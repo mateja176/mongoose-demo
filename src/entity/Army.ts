@@ -1,34 +1,15 @@
-import { prop, Typegoose } from '@typegoose/typegoose';
-
-export class ArmyDto {
-  @prop()
+export interface ArmyDto {
   name: string;
 
-  @prop()
   squadCount: number;
 }
 
-export class Army extends ArmyDto {
+export interface Army extends ArmyDto {
   id: string;
 
-  @prop()
   active: boolean;
-
-  static create = (armyDto: ArmyDto): Army => {
-    const army = new Army();
-
-    Object.entries(armyDto).forEach(([key, value]) => {
-      army[key] = value;
-    });
-
-    army.active = true;
-
-    return army;
-  };
 }
 
-export class ArmyEntity extends Typegoose {}
+export type ArmySerialized = Army;
 
-export const ArmySerialized = Army;
-
-export const ArmyModel = new ArmyEntity().getModelForClass(ArmyEntity);
+// export const ArmyModel = new ArmyEntity().getModelForClass(ArmyEntity);
