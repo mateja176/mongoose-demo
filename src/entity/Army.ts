@@ -10,6 +10,4 @@ export interface Army extends ArmyDto {
   active: boolean;
 }
 
-export type ArmySerialized = Army;
-
-// export const ArmyModel = new ArmyEntity().getModelForClass(ArmyEntity);
+export interface ArmySerialized extends Army {}

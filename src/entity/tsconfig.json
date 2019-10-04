@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "plugins": [{ "transform": "ts-transformer-mongoose" }],
+    "outDir": "../generated/entity",
+    "module": "es6",
+    "skipLibCheck": true
+  }
+}

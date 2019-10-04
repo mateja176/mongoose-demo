@@ -28,6 +28,7 @@
     "max-len": "off",
     "class-methods-use-this": "off",
     "no-useless-constructor": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "@typescript-eslint/no-empty-interface": "off"
   }
 }

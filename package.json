@@ -9,7 +9,7 @@
     "start": "ts-node -r dotenv/config src",
     "dev": "nodemon -r dotenv/config src/index.ts",
     "lint": "eslint src/**/*.ts",
-    "generate": "ts-node scripts/generateModels.ts"
+    "generate": "ttsc -p src/entity/tsconfig.json"
   },
   "keywords": [],
   "author": "Mateja Petrovic <mateja176@gmail.com> (https://github.com/mateja176)",
@@ -39,6 +39,8 @@
     "supertest": "^4.0.2",
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
+    "ts-transformer-mongoose": "^0.9.0",
+    "ttypescript": "^1.5.7",
     "typescript": "^3.6.3",
     "utility-types": "^3.8.0"
   },
