@@ -1,14 +1,14 @@
 import chalk from 'chalk';
-import { createConnection } from 'mongoose';
+import { connect } from 'mongoose';
 import 'reflect-metadata';
 import { createApp } from './app';
 import { mongoDBConfig } from './config/mongoDB';
 
 const port = process.env.PORT || 3000;
 const mongoDBPort = process.env.MONGODB_PORT || 27017;
-const mongoDBName = process.env.MONGODB_NAME || 'battle-simulator';
+const mongoDBName = process.env.MONGODB_NAME || 'typegoose-demo';
 
-createConnection(
+connect(
   `mongodb://localhost:${mongoDBPort}/${mongoDBName}`,
   mongoDBConfig,
 )
