@@ -3,14 +3,16 @@ import * as jwt from 'jsonwebtoken';
 import { isNil } from 'lodash';
 import * as passport from 'passport';
 import { jwtSecret } from './config/jwt';
-import { ArmyDto, ArmyModel } from './entity/Army';
+import { ArmyDto } from './entity/Army';
 import { Request } from './models';
+import { ArmyModel } from './mongo/models';
 import { passportInit } from './passport/init';
 
 export const createApp = (): express.Express => {
   const app = express();
 
   app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
 
   app.get('/', (req, res) => {
     res.send('Hello World');
@@ -63,9 +65,15 @@ export const createApp = (): express.Express => {
   );
 
   app.get('/armies', authenticate, async (req, res) => {
-    const armies = await ArmyModel.find();
+    const {
+      query: { active },
+    } = req;
 
-    res.json(armies);
+    if (['true', 'false'].includes(req.query.active)) {
+      return res.json(await ArmyModel.find({ active }));
+    }
+
+    return res.json(await ArmyModel.find());
   });
 
   return app;
