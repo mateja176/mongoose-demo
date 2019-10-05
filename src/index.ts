@@ -6,7 +6,7 @@ import { mongoDBConfig } from './config/mongoDB';
 
 const port = process.env.PORT || 3000;
 const mongoDBPort = process.env.MONGODB_PORT || 27017;
-const mongoDBName = process.env.MONGODB_NAME || 'typegoose-demo';
+const mongoDBName = process.env.MONGODB_NAME || 'mongoose-demo';
 
 connect(
   `mongodb://localhost:${mongoDBPort}/${mongoDBName}`,
